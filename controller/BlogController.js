@@ -1,5 +1,5 @@
 const boom = require('boom')
-const Blog = require("../model/models/Post")
+const Blog = require("../model/schemas/Post")
 
 exports.all = async (req, rep) => {
   try {
