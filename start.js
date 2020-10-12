@@ -11,7 +11,7 @@ routes.forEach((route, index) => { app.route(route) })
 
 const start = async () => {
   try {
-    // await app.register(mongoConnector)
+    await app.register(mongoConnector)
     await app.listen(PORT)
     app.log.info(`🚀 app running on ${app.server.address().port}`)
   } catch (err) {
