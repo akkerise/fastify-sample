@@ -32,7 +32,7 @@ let lowestGirlsGrade = minGrade(getGirls(grades)) // 9
  * @param {*} job 
  */
 
-function hello(greeting) {
+const hello = (greeting) => {
   return (who) => {
     console.log(greeting + ' ' + who);
   }

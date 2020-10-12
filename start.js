@@ -5,14 +5,13 @@ const mongoConnector = require("./config/mongo-connector")
 const routes = require("./routes")
 const app = App({ bodyLimit: 1048576 * 2, logger: true })
 
-
 app.get("/", async () => { return { message: "Initializing" } })
 
 routes.forEach((route, index) => { app.route(route) })
 
 const start = async () => {
   try {
-    await app.register(mongoConnector)
+    // await app.register(mongoConnector)
     await app.listen(PORT)
     app.log.info(`🚀 app running on ${app.server.address().port}`)
   } catch (err) {
@@ -21,9 +20,6 @@ const start = async () => {
     process.exit(1)
   }
 }
-
-const UserService = require("./model/services/UserService")
-UserService.jRename()
 
 // const UserService = require("./model/services/UserService")
 // const rootJob = cron.schedule("*/2 * * * * *", async () => {
