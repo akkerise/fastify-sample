@@ -1,9 +1,20 @@
 const App = require('fastify');
 const cron = require('node-cron')
 const PORT = process.env.PORT || 3333;
-const mongoConnector = require("./config/mongo-connector")
+const mongoConnector = require("./plugin/mongo-connector")
 const routes = require("./routes")
 const app = App({ bodyLimit: 1048576 * 2, logger: true })
+
+
+/**
+ * [hooks]
+ * @param  {[type]} 'preValidation' [Pre validation]
+ * @param  {[type]} 'onClose' [After close]
+ */
+app.addHook('preValidation', async (req, rep) => { })
+app.addHook('onClose', (instance, done) => { })
+
+app.use(require('cors')())
 
 app.get("/", async () => { return { message: "Initializing" } })
 
@@ -28,6 +39,6 @@ const start = async () => {
 //     console.log("--------------------- Destroy Job ------------------------");
 //     rootJob.stop();
 //   }
-// });
+// });  
 
 start();
