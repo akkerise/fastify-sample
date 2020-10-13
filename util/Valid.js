@@ -25,7 +25,8 @@ const phone = val => /^\+?[0-9]{6,15}$/i.test(val)
 
 module.exports = {
   format,
-  email
+  email,
+  phone
 };
 
 
